@@ -6,7 +6,6 @@
     "@arcgis/core": "^4.31.6",
     "cra-template": "1.2.0",
     "react": "^19.0.0",
-    "react-arcgis": "^3.3.3",
     "react-dom": "^19.0.0",
     "react-scripts": "5.0.1"
   },
