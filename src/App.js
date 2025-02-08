@@ -1,11 +1,12 @@
-import MapComponent from "./MapComponent";
+import MapComponent from "./components/MapComponent/MapComponent";
+import "./App.css";
 
 function App() {
   return (
-    <>
-      <div className="App">Welcome to ArcGIS Map!</div>
+    <div className="app">
+      <h1>Welcome to ArcGIS Map!</h1>
       <MapComponent />
-    </>
+    </div>
   );
 }
 
