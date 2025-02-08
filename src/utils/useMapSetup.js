@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Map from "@arcgis/core/Map";
 import MapView from "@arcgis/core/views/MapView";
 import Search from "@arcgis/core/widgets/Search";
@@ -10,7 +10,7 @@ import PopupTemplate from "@arcgis/core/PopupTemplate";
 const useMapSetup = (mapCenter) => {
   const mapViewRef = useRef(null);
 
-  const initializeMap = async () => {
+  const initializeMap = useCallback(async () => {
     const newMap = new Map({
       basemap: "dark-gray",
     });
@@ -24,7 +24,7 @@ const useMapSetup = (mapCenter) => {
 
     await view.when();
     return view;
-  };
+  }, [mapCenter]);
 
   const addWidgets = (view) => {
     const home = new Home({ view });
@@ -103,7 +103,7 @@ const useMapSetup = (mapCenter) => {
         view.destroy();
       }
     };
-  }, [mapCenter]);
+  }, [initializeMap]);
 
   return mapViewRef;
 };
